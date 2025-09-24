@@ -7,24 +7,29 @@ import waxIcon from "@/assets/wax-icon.jpg";
 const Services = () => {
   const services = [
     {
-      title: "HAIR + COLOR",
+      title: "KERATIN",
       icon: hairIcon,
-      description: "Expert cuts, styling, and color treatments using premium products",
+      description: "Professional keratin treatment for smooth, frizz-free hair. Price depends on length and density.",
     },
     {
-      title: "BLOWOUT BAR", 
+      title: "AMINOTHERAPY", 
       icon: blowoutIcon,
-      description: "Professional blowouts and styling for any occasion",
+      description: "Advanced amino acid therapy for hair restoration and strengthening.",
     },
     {
-      title: "SPA",
+      title: "NANOPLASTIA",
       icon: spaIcon,
-      description: "Relaxing spa treatments and luxury wellness services",
+      description: "Revolutionary nanoplastia treatment for silky, manageable hair.",
     },
     {
-      title: "WAX",
+      title: "BLUETOX",
       icon: waxIcon,
-      description: "Professional waxing services for smooth, lasting results",
+      description: "Premium bluetox treatment for ultimate hair smoothening and repair.",
+    },
+    {
+      title: "BOOTOX",
+      icon: hairIcon,
+      description: "Intensive bootox therapy for damaged hair restoration.",
     }
   ];
 
@@ -42,7 +47,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {services.map((service, index) => (
             <Card key={index} className="group border-0 bg-transparent hover:bg-card transition-luxury cursor-pointer">
               <CardContent className="p-8 text-center">

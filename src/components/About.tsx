@@ -36,26 +36,37 @@ const About = () => {
                 ABOUT CABIN8
               </p>
               <h2 className="text-4xl md:text-5xl font-serif font-light text-primary mb-6 leading-tight">
-                Where Style Meets
-                <span className="block">Sophistication</span>
+                About Cabin8
+                <span className="block">Unisex Salon</span>
               </h2>
             </div>
 
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p className="text-lg">
-                At Cabin8 Unisex Salon, we believe that great style is an expression of your unique personality. 
-                Our mission is to provide exceptional hair and beauty services in an atmosphere of luxury and comfort.
+                Located in Ichalkaranji 416115 near RK Cineplex, Cabin8 Unisex Salon is your destination 
+                for premium beauty, cosmetic & personal care services. Under the expert guidance of 
+                owner Shrey KShirsagar, we bring together culture and expertise in Makeup, Beauty, Hair, 
+                and Health for happy lifestyles.
               </p>
               
               <p>
-                Since our founding, we've been committed to staying at the forefront of hair trends and techniques, 
-                while maintaining the timeless elegance and personalized service that our clients love.
+                We specialize in advanced treatments including Keratin, Aminotherapy, Nanoplastia, 
+                Bluetox, and Bootox. Our commitment to hygienic services at affordable prices, 
+                combined with loyalty rewards and complimentary consultations, makes us the 
+                preferred choice for discerning clients.
               </p>
 
-              <p>
-                Whether you're looking for a dramatic transformation or subtle enhancement, 
-                our talented team will work with you to achieve the perfect look that complements your lifestyle.
-              </p>
+              <div className="mb-6">
+                <h3 className="text-xl font-serif text-primary mb-4">Our Expert Team</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {['Smital', 'Sanchita', 'Pooja', 'Rushikesh', 'Om', 'Nachiket'].map((name, index) => (
+                    <div key={index} className="bg-card/30 rounded-lg p-3 text-center">
+                      <p className="font-medium text-primary text-sm">{name}</p>
+                      <p className="text-xs text-muted-foreground">Expert Stylist</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">

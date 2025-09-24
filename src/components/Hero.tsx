@@ -17,17 +17,32 @@ const Hero = () => {
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <div className="space-y-6">
           <p className="text-lg md:text-xl font-light tracking-wide uppercase">
-            Experience luxury and style
+            Beauty, Cosmetic & Personal Care
           </p>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-light leading-tight">
-            <span className="block">PREMIERE</span>
+            <span className="block">CABIN8</span>
             <span className="block">UNISEX SALON</span>
           </h1>
 
           <p className="text-lg md:text-xl font-light max-w-2xl mx-auto">
-            Where modern techniques meet timeless elegance in the heart of the city
+            We're bringing together culture and Makeup, Beauty, Hair, Health experts and happy lifestyles.
           </p>
+
+          <div className="space-y-3 mb-8">
+            <div className="flex items-center justify-center space-x-3">
+              <span className="text-accent text-xl">✨</span>
+              <span className="text-white/90">Hygienic services at affordable prices</span>
+            </div>
+            <div className="flex items-center justify-center space-x-3">
+              <span className="text-accent text-xl">🎁</span>
+              <span className="text-white/90">Win lucky draws & enjoy loyalty points</span>
+            </div>
+            <div className="flex items-center justify-center space-x-3">
+              <span className="text-accent text-xl">💇‍♂️</span>
+              <span className="text-white/90">Free haircut with your consultation</span>
+            </div>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Button 

@@ -7,26 +7,26 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: "(555) 123-SALON",
+      details: "8007449164",
       subtitle: "Call or text to book"
     },
     {
       icon: Mail,
-      title: "Email", 
-      details: "hello@cabin8salon.com",
-      subtitle: "We'll respond within 24hrs"
+      title: "Owner", 
+      details: "Shrey KShirsagar",
+      subtitle: "Salon proprietor"
     },
     {
       icon: MapPin,
       title: "Location",
-      details: "123 Style Street",
-      subtitle: "Downtown District"
+      details: "Ichalkaranji 416115",
+      subtitle: "Near RK Cineplex"
     },
     {
       icon: Clock,
       title: "Hours",
-      details: "Tue - Sat: 9AM - 7PM",
-      subtitle: "Sun - Mon: Closed"
+      details: "Mon - Sun: 9AM - 8PM",
+      subtitle: "Open all days"
     }
   ];
 

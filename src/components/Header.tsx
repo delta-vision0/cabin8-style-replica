@@ -12,7 +12,11 @@ const Header = () => {
         <div className="flex items-center justify-center gap-6">
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4" />
-            <span>TAP HERE TO BOOK NOW BY TEXT!</span>
+            <span>CALL 8007449164 TO BOOK NOW!</span>
+          </div>
+          <div className="hidden md:flex items-center gap-2">
+            <MapPin className="h-4 w-4" />
+            <span>Ichalkaranji 416115 near RK Cineplex</span>
           </div>
         </div>
       </div>
