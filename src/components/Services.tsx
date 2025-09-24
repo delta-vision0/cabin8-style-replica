@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import hairIcon from "@/assets/hair-icon.jpg";
 import blowoutIcon from "@/assets/blowout-icon.jpg";
 import spaIcon from "@/assets/spa-icon.jpg";
@@ -27,9 +28,9 @@ const Services = () => {
       description: "Premium bluetox treatment for ultimate hair smoothening and repair.",
     },
     {
-      title: "BOOTOX",
+      title: "BOTOX",
       icon: hairIcon,
-      description: "Intensive bootox therapy for damaged hair restoration.",
+      description: "Intensive hair botox therapy for damaged hair restoration.",
     }
   ];
 
@@ -49,7 +50,8 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="group border-0 bg-transparent hover:bg-card transition-luxury cursor-pointer">
+            <Link key={index} to="/treatments">
+              <Card className="group border-0 bg-transparent hover:bg-card transition-luxury cursor-pointer h-full">
               <CardContent className="p-8 text-center">
                 {/* Icon */}
                 <div className="mb-6 flex justify-center">
@@ -80,6 +82,7 @@ const Services = () => {
                 </div>
               </CardContent>
             </Card>
+            </Link>
           ))}
         </div>
 

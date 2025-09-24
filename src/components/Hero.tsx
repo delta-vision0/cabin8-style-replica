@@ -31,15 +31,15 @@ const Hero = () => {
 
           <div className="space-y-3 mb-8">
             <div className="flex items-center justify-center space-x-3">
-              <span className="text-accent text-xl">✨</span>
+              <div className="w-2 h-2 rounded-full bg-accent"></div>
               <span className="text-white/90">Hygienic services at affordable prices</span>
             </div>
             <div className="flex items-center justify-center space-x-3">
-              <span className="text-accent text-xl">🎁</span>
+              <div className="w-2 h-2 rounded-full bg-accent"></div>
               <span className="text-white/90">Win lucky draws & enjoy loyalty points</span>
             </div>
             <div className="flex items-center justify-center space-x-3">
-              <span className="text-accent text-xl">💇‍♂️</span>
+              <div className="w-2 h-2 rounded-full bg-accent"></div>
               <span className="text-white/90">Free haircut with your consultation</span>
             </div>
           </div>

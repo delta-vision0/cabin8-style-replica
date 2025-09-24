@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, MapPin } from "lucide-react";
+import logoImage from "@/assets/cabin8-logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,13 +27,16 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
-            <div className="flex items-center">
-              <h1 className="text-2xl md:text-3xl font-serif font-light tracking-wider text-primary">
-                CABIN8
-                <span className="block text-sm font-sans uppercase tracking-[0.2em] text-muted-foreground">
+            <div className="flex items-center space-x-4">
+              <img src={logoImage} alt="Cabin8 Logo" className="h-14 w-14 rounded-full object-cover border-2 border-accent/20" />
+              <div>
+                <h1 className="text-2xl md:text-3xl font-serif font-light tracking-wider text-primary">
+                  CABIN8
+                </h1>
+                <span className="text-sm font-sans uppercase tracking-[0.2em] text-muted-foreground">
                   unisex salon
                 </span>
-              </h1>
+              </div>
             </div>
 
             {/* Desktop Navigation */}
