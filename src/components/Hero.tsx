@@ -55,6 +55,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               className="border-white text-black hover:bg-white hover:text-primary transition-luxury px-8 py-3 text-lg font-medium"
+              href ="#services"
             >
               VIEW SERVICES
             </Button>
