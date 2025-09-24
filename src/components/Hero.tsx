@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import heroImage from "@/assets/salon-hero.jpg";
+import heroImage from "@/assets/cabin8-interior.jpg";
 
 const Hero = () => {
   return (
