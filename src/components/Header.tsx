@@ -13,7 +13,7 @@ const Header = () => {
         <div className="flex items-center justify-center gap-6">
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4" />
-            <span>CALL 8007449164 TO BOOK NOW!</span>
+            <a href="tel:8007446194" className="underline-offset-2 hover:underline">CALL 8007446194 TO BOOK NOW!</a>
           </div>
           <div className="hidden md:flex items-center gap-2">
             <MapPin className="h-4 w-4" />
@@ -53,9 +53,9 @@ const Header = () => {
               <a href="#contact" className="text-foreground hover:text-primary transition-smooth font-medium">
                 CONTACT
               </a>
-              <Button variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-luxury">
-                WORK WITH US
-              </Button>
+              <a href="#careers" className="inline-flex items-center justify-center bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-luxury rounded-md px-4 py-2 font-medium">
+                START YOUR CAREER
+              </a>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -103,9 +103,9 @@ const Header = () => {
                 >
                   CONTACT
                 </a>
-                <Button variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-luxury w-fit">
-                  WORK WITH US
-                </Button>
+                <a href="#careers" className="inline-flex items-center justify-center bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-luxury rounded-md px-4 py-2 font-medium w-fit">
+                  START YOUR CAREER
+                </a>
               </nav>
             </div>
           )}

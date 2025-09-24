@@ -4,6 +4,8 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import interior from "@/assets/cabin8-interior.jpg";
+import merch from "@/assets/cabin8-merchandise.jpg";
 
 const Index = () => {
   return (
@@ -12,6 +14,32 @@ const Index = () => {
       <Hero />
       <About />
       <Services />
+      {/* Gallery Section */}
+      <section id="gallery" className="py-20 px-4 bg-muted/30">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <p className="text-muted-foreground uppercase tracking-widest text-sm font-medium mb-2">INSIDE CABIN8</p>
+            <h2 className="text-4xl md:text-5xl font-serif font-light text-primary">Gallery</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <img src={interior} alt="Cabin8 Interior" className="w-full h-72 object-cover rounded-xl shadow-soft" />
+            <img src={merch} alt="Cabin8 Merchandise" className="w-full h-72 object-cover rounded-xl shadow-soft" />
+          </div>
+        </div>
+      </section>
+
+      {/* Careers Section */}
+      <section id="careers" className="py-20 px-4 bg-gradient-to-b from-background to-muted/10">
+        <div className="container mx-auto max-w-6xl text-center">
+          <h2 className="text-3xl md:text-5xl font-serif font-light text-primary mb-4">Start Your Career With Us</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+            Join our hair & makeup academy and grow with industry professionals. Hands-on training, real clients, and a clear path to success.
+          </p>
+          <a href="#contact" className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-luxury rounded-md font-medium tracking-wide">
+            CONTACT ADMISSIONS
+          </a>
+        </div>
+      </section>
       <Contact />
       <Footer />
     </div>

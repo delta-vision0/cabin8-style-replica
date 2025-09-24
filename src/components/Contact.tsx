@@ -7,7 +7,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: "8007449164",
+      details: "8007446194",
       subtitle: "Call or text to book"
     },
     {
@@ -86,19 +86,18 @@ const Contact = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-luxury px-8 py-3 text-lg font-medium"
+            <a 
+              href="tel:8007446194"
+              className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 transition-luxury px-8 py-3 text-lg font-medium rounded-md"
             >
               BOOK NOW
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-luxury px-8 py-3 text-lg font-medium"
+            </a>
+            <a 
+              href="tel:8007446194"
+              className="inline-flex items-center justify-center border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-luxury px-8 py-3 text-lg font-medium rounded-md"
             >
               CONSULTATION
-            </Button>
+            </a>
           </div>
 
           {/* Social Links */}

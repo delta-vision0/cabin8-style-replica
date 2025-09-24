@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Clock, Users, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import interiorImage from "@/assets/cabin8-interior.jpg";
@@ -90,6 +90,12 @@ const Treatments = () => {
     }
   ];
 
+  const { serviceId } = useParams();
+
+  const visibleTreatments = serviceId
+    ? treatments.filter((t) => t.id === serviceId)
+    : treatments;
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -141,7 +147,7 @@ const Treatments = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {treatments.map((treatment) => (
+            {visibleTreatments.map((treatment) => (
               <Card key={treatment.id} className="hover:shadow-lg transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-2xl font-serif text-primary">

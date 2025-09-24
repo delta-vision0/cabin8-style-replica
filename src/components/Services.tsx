@@ -8,28 +8,33 @@ import waxIcon from "@/assets/wax-icon.jpg";
 const Services = () => {
   const services = [
     {
+      id: "keratin",
       title: "KERATIN",
       icon: hairIcon,
       description: "Professional keratin treatment for smooth, frizz-free hair. Price depends on length and density.",
     },
     {
+      id: "aminotherapy",
       title: "AMINOTHERAPY", 
       icon: blowoutIcon,
       description: "Advanced amino acid therapy for hair restoration and strengthening.",
     },
     {
+      id: "nanoplastia",
       title: "NANOPLASTIA",
       icon: spaIcon,
       description: "Revolutionary nanoplastia treatment for silky, manageable hair.",
     },
     {
+      id: "bluetox",
       title: "BLUETOX",
       icon: waxIcon,
       description: "Premium bluetox treatment for ultimate hair smoothening and repair.",
     },
     {
+      id: "botox",
       title: "BOTOX",
-      icon: hairIcon,
+      icon: spaIcon,
       description: "Intensive hair botox therapy for damaged hair restoration.",
     }
   ];
@@ -49,8 +54,8 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-          {services.map((service, index) => (
-            <Link key={index} to="/treatments">
+          {services.map((service) => (
+            <Link key={service.id} to={`/treatments/${service.id}`}>
               <Card className="group border-0 bg-transparent hover:bg-card transition-luxury cursor-pointer h-full">
               <CardContent className="p-8 text-center">
                 {/* Icon */}
@@ -93,12 +98,12 @@ const Services = () => {
             and helping you look and feel your absolute best.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-luxury rounded-md font-medium tracking-wide">
+            <Link to="/treatments" className="px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-luxury rounded-md font-medium tracking-wide">
               VIEW ALL SERVICES
-            </button>
-            <button className="px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-luxury rounded-md font-medium tracking-wide">
+            </Link>
+            <a href="tel:8007446194" className="px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-luxury rounded-md font-medium tracking-wide">
               BOOK CONSULTATION
-            </button>
+            </a>
           </div>
         </div>
       </div>

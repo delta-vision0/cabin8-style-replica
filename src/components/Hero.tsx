@@ -45,20 +45,18 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button 
-              size="lg" 
-              className="bg-white text-primary hover:bg-white/90 transition-luxury px-8 py-3 text-lg font-medium"
+            <a
+              href="tel:8007446194"
+              className="inline-flex items-center justify-center bg-white text-primary hover:bg-white/90 transition-luxury px-8 py-3 text-lg font-medium rounded-md"
             >
               BOOK APPOINTMENT
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-white text-black hover:bg-white hover:text-primary transition-luxury px-8 py-3 text-lg font-medium"
-              href ="#services"
+            </a>
+            <a 
+              href="#services"
+              className="inline-flex items-center justify-center border border-white text-black hover:bg-white hover:text-primary transition-luxury px-8 py-3 text-lg font-medium rounded-md"
             >
               VIEW SERVICES
-            </Button>
+            </a>
           </div>
         </div>
       </div>
