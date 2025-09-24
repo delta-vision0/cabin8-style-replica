@@ -13,20 +13,20 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Owner", 
-      details: "Shrey KShirsagar",
-      subtitle: "Salon proprietor"
+      details: "Shrey Kshirsagar",
+      subtitle: "Salon Owner"
     },
     {
       icon: MapPin,
       title: "Location",
-      details: "Ichalkaranji 416115",
-      subtitle: "Near RK Cineplex"
+      details: "Near RK Cineplex,Ichalkaranji",
+      subtitle: "Ichalkaranji-416115"
     },
     {
       icon: Clock,
       title: "Hours",
-      details: "Mon - Sun: 9AM - 8PM",
-      subtitle: "Open all days"
+      details: "THU - MON: 9AM - 9PM",
+      subtitle: "Closed on Tuesday"
     }
   ];
 
@@ -104,7 +104,7 @@ const Contact = () => {
           {/* Social Links */}
           <div className="flex justify-center gap-6">
             <a 
-              href="#" 
+              href="https://www.instagram.com/cabin8salon/" 
               className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center hover:bg-accent/30 transition-luxury group"
             >
               <Instagram className="w-5 h-5 text-primary group-hover:scale-110 transition-luxury" />
