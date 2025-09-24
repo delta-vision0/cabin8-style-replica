@@ -40,12 +40,12 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">hello@cabin8salon.com</span>
+                <span className="text-sm">cabin8salon@gmail.com</span>
               </div>
               <div className="mt-4">
                 <p className="text-sm font-medium mb-1">Hours:</p>
-                <p className="text-sm">Tue - Sat: 9AM - 7PM</p>
-                <p className="text-sm">Sun - Mon: Closed</p>
+                <p className="text-sm">THU - MON: 9AM - 9PM</p>
+                <p className="text-sm">Tuesday : Closed</p>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Footer = () => {
           
           <div className="flex gap-4 mt-4 md:mt-0">
             <a 
-              href="#" 
+              href="https://www.instagram.com/cabin8salon/" 
               className="w-8 h-8 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-luxury"
             >
               <Instagram className="w-4 h-4" />
