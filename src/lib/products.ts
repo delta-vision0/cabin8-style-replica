@@ -1,60 +1,78 @@
 export type Product = {
   id: string;
   name: string;
-  category: string;
-  priceFrom: number;
-  image: string;
-  highlights: string[];
+  description: string;
+  ingredients: string;
+  howToUse: string;
+  volume: string;
+  price: string;
+  image: string; // image file name (stored under public/products)
 };
 
 export const products: Product[] = [
   {
-    id: "argan-shampoo",
-    name: "Argan Oil Shampoo",
-    category: "Hair Care",
-    priceFrom: 599,
-    image: "/products/argan-oil-hero.jpg",
-    highlights: ["Sulphate free", "Shine boost", "Daily use"],
+    id: "cabin8-argan-oil-shampoo",
+    name: "Cabin8 Haircare Argan Oil Shampoo",
+    description:
+      "Cabin8 Haircare Argan Oil Shampoo is enriched with the nourishing power of Argan Oil to deeply hydrate and revitalize your hair. This sulphate and paraben-free formula gently cleanses while protecting color-treated hair, leaving it soft, shiny, and frizz-free.",
+    ingredients:
+      "Aqua, Cocamidopropyl Betaine, Etheylene Glycol Disterate, Coco Diethanolamine, Moroccan Argan Oil Extracts, Glycerine, Sodium Lauroyl Sarcosinate, a Polyquaternium - 7, Coco Glucoside, Aloe Barbadensis, Dmdm Hydantoin, Citric Acid and fragrance",
+    howToUse: "Apply to wet hair, lather, and rinse thoroughly.",
+    volume: "300ml",
+    price: "₹599/-",
+    image: "cabin8-argan-oil-shampoo.jpg",
   },
   {
-    id: "argan-conditioner",
-    name: "Argan Oil Conditioner",
-    category: "Hair Care",
-    priceFrom: 599,
-    image: "/products/argan-oil-hero.jpg",
-    highlights: ["Softness", "Detangle", "Gloss"],
+    id: "cabin8-intense-repair-shampoo",
+    name: "Cabin8 Intense Repair Shampoo",
+    description:
+      "Cabin8 Intense Repair Shampoo is enriched with the nourishing power of hydrolized keratin and quinoa protein to deeply hydrate and revitalize your hair. This sulfate-and paraben-free formula gently cleanses while protecting color-treated hair, leaving it soft, shiny, and frizz-free.",
+    ingredients:
+      "Purified Water (Aqua), Cocoamidopropyl Betaine, Glycerine, Sodium Lauroy! Sarcosinate, Polyquaternium - 7, Aloe Barbadensis, DMDM Hydantoin, Fragrance",
+    howToUse:
+      "Apply a small amount to wet hair, massage gently into the scalp and hair, then rinse thoroughly. Enjoy the nourishing benefits of hydrolized keratin for luxuriously soft and shiny hair.",
+    volume: "250ml",
+    price: "₹1199/-",
+    image: "cabin8-intense-repair-shampoo.jpg",
   },
   {
-    id: "anti-dandruff-shampoo",
-    name: "Anti Dandruff Shampoo",
-    category: "Scalp Care",
-    priceFrom: 529,
-    image: "/products/anti-dandruff-shampoo.jpg",
-    highlights: ["Flake control", "Fresh scalp", "Balanced pH"],
+    id: "cabin8-intense-repair-conditioner",
+    name: "Cabin8 Intense Repair Conditioner",
+    description:
+      "Cabin8 intense Repair Conditioner is a rich cream conditioning formula specially designed to strengthen hair while restoring shine and radiance. It does not contain harmful chemicals like sulphate and paraben.",
+    ingredients:
+      "Purified Water (Aqua), Glycerine, Cetostearyl Alcohol, Ceteareth 20, Cetrimonium Chloride, Dimethiconol, Olive Oil, Argan Oil, Polyquaternium 7, DMDM Hydantoin, Fragrance",
+    howToUse:
+      "Wash hair with cabin8 Intense Repair Shampoo. Then Apply cabin8 Intense Repair Conditioner and comb through the ends. Leave it on for 5-7 minutes and rinse thoroughly with cold water.",
+    volume: "250ml",
+    price: "₹1199/-",
+    image: "cabin8-intense-repair-conditioner.jpg",
   },
   {
-    id: "anti-dandruff-oil",
-    name: "Anti Dandruff Oil",
-    category: "Scalp Care",
-    priceFrom: 529,
-    image: "/products/anti-dandruff-shampoo.jpg",
-    highlights: ["Soothing", "Anti-itch", "Weekly care"],
+    id: "cabin8-anti-dandruff-shampoo",
+    name: "Cabin8 Anti-Dandruff Shampoo",
+    description:
+      "Experience the revitalizing power of cabin8 Anti-Dandruff shampoo-an expertly crafted solution to banish dandruff and restore a healthy, flake-free scalp, Our advanced formula comaines the oest of nature and science to provide a cleansing experience that goes beyond the surface, leaving your hair refreshed and your confidence renewed. Enriched with potent anti-dandruff agents, this shampoo effectively targets the root causes of flakiness, working to soothe irritation and maintain a balanced scalp environment. Cabin8 Anti-Dandruff Shampoo is your ticket to a clean, comfortable scalp and lusciously healthy hair.",
+    ingredients:
+      "Aqua, Disodium Ethylenediaminetetraacetic Acid, Glycerin, Guar Hydroxypropyltrimonium Chloride. Ethylene Glycol Distearate, Sodium lauryl Ethor Sulphate, Cocamidopropyl Betaine, Coco Diethanolamine, Polyquaternium 7, Dimethicone, Amodimethicone, Laureth-23, Polyquaternium-10 And Laureth-4, Zine lyrithione, Kotoconazolo, Aloeverd xtract, Avocado Oil, Linalool, Olive Oil Phenoxyethanol (and) Ethylhexylglycerin, Fragrance, Colour.",
+    howToUse:
+      "Wet your hair thoroughly. Take o generous amount of cabin8 Anti-dandruff Shampoo and apply it to your scalp. Gently massage the shampoo into your scalp using circular motions, ensuring even coverage. Allow the shampoo to sit for 2-3 minutes, allowing the active ingredients to work their magic. Rinse thoroughly with lukewarm water.",
+    volume: "250ml",
+    price: "₹599/-",
+    image: "cabin8-anti-dandruff-shampoo.jpg",
   },
   {
-    id: "intense-repair-shampoo",
-    name: "Intense Repair Shampoo",
-    category: "Repair",
-    priceFrom: 649,
-    image: "/products/anti-dandruff-shampoo.jpg",
-    highlights: ["Strengthen", "Smooth", "Color safe"],
-  },
-  {
-    id: "intense-repair-conditioner",
-    name: "Intense Repair Conditioner",
-    category: "Repair",
-    priceFrom: 649,
-    image: "/products/anti-dandruff-shampoo.jpg",
-    highlights: ["Softness", "Shine", "Daily repair"],
+    id: "cabin8-anti-dandruff-hair-oil",
+    name: "Cabin8 Anti-Dandruff Hair Oil",
+    description:
+      "Indulge in the rejuvenating experience of cabin8 Anti-Dandruff Hair Oil, a meticulously crafted elixir designed to liberate your scalp from the grip of persistent dandruff. Our premium formula combines the therapeutic properties of natural ingredients to provide a comprehensive solution or a nealthier, fake-free scalp. Enriched with a patent blend of herbal extracts, cabin8 Anti-Dandruff Hair Oil works to soothe Irritation, combat dryness, and restore balance to your scalp's microflora. with rogular uso, experience the gradual Disappearance of those pesky white flakes, leaving your hair and confidence revitalised. Harnessing the power of nature, cabin8 formulation not only addresses dandruff but also nurtures your hair, promoting overall hair health. The oil's lightweight texture ensures easy absorption, delivering its nourishing benefit deep into the roots.",
+    ingredients:
+      "Coconut Oil, lavender Oil, Avacado Oll, Tocopherol, Neem Oil, Almond Oil, Rosemary Oil, Tea Tree Oil, Castor Oil, Sunflower Oil.",
+    howToUse:
+      "Start with dry or damp hair. Take a small amount of cabin8 Anti-Dandruff Hair Oil on to your fingertips. Gently massage the oil into your scalp using circular motions, ensuring even distribution. Leave the oil on for at least 30 minutes or overnight for an intensive treatment. Wash with cabin8 Anti dandruff shampoo. For best results, use 2-3 times a week.",
+    volume: "100ml",
+    price: "₹599/-",
+    image: "cabin8-anti-dandruff-hair-oil.jpg",
   },
 ];
 

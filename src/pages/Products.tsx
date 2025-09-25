@@ -1,24 +1,19 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { products } from "@/lib/products";
 import { useMemo, useState } from "react";
 
 const ProductsPage = () => {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("all");
-
-  const categories = useMemo(() => ["all", ...Array.from(new Set(products.map((p) => p.category)))], []);
-
   const filtered = useMemo(() => {
     return products.filter((p) => {
       const matchesQuery = p.name.toLowerCase().includes(query.toLowerCase());
-      const matchesCat = category === "all" || p.category === category;
-      return matchesQuery && matchesCat;
+      return matchesQuery;
     });
-  }, [query, category]);
+  }, [query]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -30,14 +25,6 @@ const ProductsPage = () => {
             <h1 className="text-3xl md:text-4xl font-serif font-light text-primary">All Products</h1>
             <div className="flex gap-3">
               <Input placeholder="Search products..." value={query} onChange={(e) => setQuery(e.target.value)} className="w-56" />
-              <Select value={category} onValueChange={setCategory}>
-                <SelectTrigger className="w-40"><SelectValue placeholder="Category" /></SelectTrigger>
-                <SelectContent>
-                  {categories.map((c) => (
-                    <SelectItem key={c} value={c}>{c}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
             </div>
           </div>
         </div>
@@ -47,26 +34,53 @@ const ProductsPage = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((p) => (
-              <Card key={p.id} className="overflow-hidden">
-                <div className="relative aspect-[4/3] bg-muted">
-                  <img src={p.image} alt={p.name} className="absolute inset-0 h-full w-full object-cover" />
-                </div>
-                <CardContent className="p-4">
-                  <h3 className="text-lg font-semibold text-primary">{p.name}</h3>
-                  <p className="text-xs text-muted-foreground mt-1">{p.category}</p>
-                  <ul className="mt-2 text-sm text-muted-foreground space-y-1">
-                    {p.highlights.map((h) => (
-                      <li key={h}>• {h}</li>
-                    ))}
-                  </ul>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="font-semibold">From ₹{p.priceFrom}</span>
-                    <a href={`https://wa.me/918007446194?text=${encodeURIComponent("Hi, I'm interested in " + p.name)}`} target="_blank" rel="noopener noreferrer" className="text-primary underline">
-                      Enquire
-                    </a>
+              <Dialog key={p.id}>
+                <DialogTrigger asChild>
+                  <div className="cursor-pointer">
+                    <Card className="overflow-hidden">
+                      <div className="relative aspect-[4/3] bg-muted">
+                        <img src={`/products/${p.image}`} alt={p.name} className="absolute inset-0 h-full w-full object-cover" />
+                      </div>
+                      <CardContent className="p-4">
+                        <h3 className="text-lg font-semibold text-primary">{p.name}</h3>
+                        <div className="mt-1 flex items-center gap-2">
+                          <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs text-muted-foreground">{p.volume}</span>
+                          <span className="inline-flex items-center rounded-full border border-primary text-primary px-2 py-0.5 text-xs font-semibold">{p.price}</span>
+                        </div>
+                        <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{p.description}</p>
+                      </CardContent>
+                    </Card>
                   </div>
-                </CardContent>
-              </Card>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <div className="max-h-[80vh] flex flex-col">
+                    <DialogHeader>
+                      <DialogTitle className="text-xl font-serif text-primary">{p.name}</DialogTitle>
+                    </DialogHeader>
+                    <div className="relative aspect-[4/3] bg-muted rounded-md overflow-hidden">
+                      <img src={`/products/${p.image}`} alt={p.name} className="absolute inset-0 h-full w-full object-cover" />
+                    </div>
+                    <div className="mt-3 overflow-y-auto hide-scrollbar pr-1 flex-1 space-y-3">
+                      <p className="text-sm text-muted-foreground">{p.description}</p>
+                      <div>
+                        <h4 className="font-medium">Ingredients</h4>
+                        <p className="text-sm text-muted-foreground">{p.ingredients}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium">How to Use</h4>
+                        <p className="text-sm text-muted-foreground">{p.howToUse}</p>
+                      </div>
+                    </div>
+                    <div className="pt-3 border-t flex items-center justify-between">
+                      <span className="flex items-center gap-2">
+                        <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs text-muted-foreground">{p.volume}</span>
+                        <span className="inline-flex items-center rounded-full border border-primary text-primary px-2 py-0.5 text-xs font-semibold">{p.price}</span>
+                      </span>
+                      <a href={`https://wa.me/918007446194?text=${encodeURIComponent("Hi, I'm interested in " + p.name)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-3 py-2 rounded-md bg-primary text-primary-foreground text-sm">Enquire</a>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
         </div>

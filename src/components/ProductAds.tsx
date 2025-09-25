@@ -1,98 +1,44 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-
-type ProductPair = {
-  id: string;
-  title: string; // e.g., Argan Oil (Shampoo + Conditioner)
-  subtitle?: string;
-  priceFrom: string;
-  image: string; // hero image for the pair
-  highlights: string[];
-  products: { name: string }[]; // individual items in the pair
-};
-
-const productPairs: ProductPair[] = [
-  {
-    id: "argan-pair",
-    title: "Argan Oil – Shampoo + Conditioner",
-    subtitle: "Unlock Your Hair’s Radiance",
-    priceFrom: "From ₹599",
-    image: "/products/argan-oil-hero.jpg",
-    highlights: ["Sulphate & Paraben Free", "Nourish & Revitalize", "Salon-grade shine"],
-    products: [{ name: "Argan Oil Shampoo" }, { name: "Argan Oil Conditioner" }],
-  },
-  {
-    id: "anti-dandruff-pair",
-    title: "Anti Dandruff – Shampoo + Oil",
-    subtitle: "Soothe • Balance • Fresh Scalp",
-    priceFrom: "From ₹529",
-    image: "/products/anti-dandruff-shampoo.jpg",
-    highlights: ["Controls flakes & itch", "Balances scalp pH", "Everyday freshness"],
-    products: [{ name: "Anti Dandruff Shampoo" }, { name: "Anti Dandruff Oil" }],
-  },
-  {
-    id: "intense-repair-pair",
-    title: "Intense Repair – Shampoo + Conditioner",
-    subtitle: "Your everyday shield against dullness",
-    priceFrom: "From ₹649",
-    image: "/products/anti-dandruff-shampoo.jpg",
-    highlights: ["Strengthen & smooth", "Soft, glossy finish", "Color safe"],
-    products: [{ name: "Intense Repair Shampoo" }, { name: "Intense Repair Conditioner" }],
-  },
-  {
-    id: "keratin-smooth-pair",
-    title: "Keratin Smooth – Shampoo + Mask",
-    subtitle: "Frizz control with salon-smooth finish",
-    priceFrom: "From ₹699",
-    image: "/products/argan-oil-hero.jpg",
-    highlights: ["Tames frizz", "Heat protection", "Glossy shine"],
-    products: [{ name: "Keratin Smooth Shampoo" }, { name: "Keratin Smooth Mask" }],
-  },
-  {
-    id: "volume-boost-pair",
-    title: "Volume Boost – Shampoo + Conditioner",
-    subtitle: "Lightweight lift for fine hair",
-    priceFrom: "From ₹579",
-    image: "/products/argan-oil-hero.jpg",
-    highlights: ["Adds body", "Non-greasy", "Everyday fresh feel"],
-    products: [{ name: "Volume Boost Shampoo" }, { name: "Volume Boost Conditioner" }],
-  },
-];
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { products } from "@/lib/products";
 
 const phoneNumber = "8007446194";
+const featured = products;
 
-const ProductCard: FC<{ item: ProductPair; onBuy: (p: ProductPair) => void }> = ({ item, onBuy }) => {
+const ProductCard: FC<{ name: string; image: string; price: string; volume: string; description?: string; onView: () => void }> = ({ name, image, price, volume, description, onView }) => {
+  const tags = useMemo(() => {
+    if (!description) return [] as string[];
+    const text = description.toLowerCase();
+    const picked: string[] = [];
+    const add = (label: string) => { if (!picked.includes(label) && picked.length < 2) picked.push(label); };
+    if (/(sulphate|sulfate)\s*-?\s*free/.test(text)) add("Sulphate Free");
+    if (/paraben\s*-?\s*free/.test(text)) add("Paraben Free");
+    if (/(anti[-\s]?dandruff|dandruff)/.test(text)) add("Anti-Dandruff");
+    if (/(hydrate|moistur|nourish|revital)/.test(text)) add("Nourishing");
+    if (/(color[-\s]?safe|protecting color)/.test(text)) add("Color Safe");
+    if (/(shine|gloss)/.test(text)) add("Shine");
+    return picked;
+  }, [description]);
   return (
     <article className="w-full h-full bg-card rounded-xl overflow-hidden shadow-soft border border-border flex flex-col">
       <div className="relative aspect-[4/3] bg-muted">
-        <img
-          src={item.image}
-          alt={item.title}
-          className="absolute inset-0 h-full w-full object-cover"
-          loading="lazy"
-        />
+        <img src={`/products/${image}`} alt={name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
       </div>
       <div className="p-4">
-        <h3 className="text-base font-semibold text-primary leading-snug">{item.title}</h3>
-        {item.subtitle && (
-          <p className="text-xs text-muted-foreground mt-1">{item.subtitle}</p>
-        )}
-        <p className="text-sm text-muted-foreground mt-2">
-          {item.products.map((p) => p.name).join(" • ")}
-        </p>
-        <ul className="mt-3 space-y-1">
-          {item.highlights.map((h) => (
-            <li key={h} className="text-sm text-muted-foreground">• {h}</li>
+        <h3 className="text-base font-semibold text-primary leading-snug">{name}</h3>
+        <div className="mt-2 flex items-center gap-2">
+          <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs text-muted-foreground">{volume}</span>
+          <span className="inline-flex items-center rounded-full border border-primary text-primary px-2 py-0.5 text-xs font-semibold">{price}</span>
+        </div>
+        <div className="mt-2 h-[28px] flex items-center gap-2 overflow-hidden">
+          {tags.map((t) => (
+            <span key={t} className="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-[11px] text-muted-foreground whitespace-nowrap">{t}</span>
           ))}
-        </ul>
+        </div>
         <div className="mt-4 flex items-center justify-between">
-          <span className="text-lg font-semibold">{item.priceFrom}</span>
-          <button
-            onClick={() => onBuy(item)}
-            className="inline-flex items-center justify-center px-3 py-2 rounded-md bg-primary text-primary-foreground text-sm"
-          >
-            Buy
-          </button>
+          <span />
+          <button onClick={onView} className="inline-flex items-center justify-center px-3 py-2 rounded-md bg-primary text-primary-foreground text-sm">View</button>
         </div>
       </div>
     </article>
@@ -100,7 +46,7 @@ const ProductCard: FC<{ item: ProductPair; onBuy: (p: ProductPair) => void }> = 
 };
 
 const ProductAds: FC = () => {
-  const [active, setActive] = useState<ProductPair | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(null);
   const [mobileApi, setMobileApi] = useState<CarouselApi | null>(null);
   const [mobileActiveDot, setMobileActiveDot] = useState(0);
   const whatsappUrl = (pName?: string) => {
@@ -115,7 +61,7 @@ const ProductAds: FC = () => {
   useEffect(() => {
     if (!mobileApi) return;
     const onSelect = () => {
-      const total = productPairs.length;
+      const total = featured.length;
       const idx = mobileApi.selectedScrollSnap();
       const progress = total <= 1 ? 0 : idx / (total - 1);
       const dot = Math.min(4, Math.max(0, Math.round(progress * 4)));
@@ -147,9 +93,9 @@ const ProductAds: FC = () => {
               setApi={(api: CarouselApi) => setMobileApi(api)}
             >
               <CarouselContent className="-ml-4">
-                {productPairs.map((item) => (
-                  <CarouselItem key={item.id} className="basis-full pl-4">
-                    <ProductCard item={item} onBuy={setActive} />
+                {featured.map((p) => (
+                  <CarouselItem key={p.id} className="basis-full pl-4">
+                    <ProductCard name={p.name} image={p.image} price={p.price} volume={p.volume} description={p.description} onView={() => setActiveId(p.id)} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
@@ -174,12 +120,9 @@ const ProductAds: FC = () => {
               className="relative"
             >
               <CarouselContent className="-ml-6">
-                {productPairs.map((item, index) => (
-                  <CarouselItem
-                    key={item.id}
-                    className="basis-[360px] pl-6 h-[560px]"
-                  >
-                    <ProductCard item={item} onBuy={setActive} />
+                {featured.map((p) => (
+                  <CarouselItem key={p.id} className="basis-[360px] pl-6 h-[560px]">
+                    <ProductCard name={p.name} image={p.image} price={p.price} volume={p.volume} description={p.description} onView={() => setActiveId(p.id)} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
@@ -208,35 +151,43 @@ const ProductAds: FC = () => {
         </div>
       </div>
 
-      {/* Action Sheet */}
-      {active && (
-        <div className="fixed inset-0 z-50">
-          <button aria-label="Close" onClick={() => setActive(null)} className="absolute inset-0 bg-black/40" />
-          <div className="absolute left-0 right-0 bottom-0 bg-card rounded-t-2xl shadow-soft p-4">
-            <div className="text-center mb-3">
-              <p className="text-sm text-muted-foreground">Proceed to buy</p>
-              <h4 className="text-lg font-semibold text-primary">{active.title}</h4>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <a
-                href={`tel:${phoneNumber}`}
-                className="inline-flex items-center justify-center px-4 py-3 rounded-md bg-primary text-primary-foreground text-sm font-medium"
-                onClick={() => setActive(null)}
-              >
-                Call
-              </a>
-              <a
-                href={whatsappUrl(active.title)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-4 py-3 rounded-md border border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm font-medium"
-                onClick={() => setActive(null)}
-              >
-                WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
+      {/* Product Detail Dialog */}
+      {activeId && (
+        <Dialog open onOpenChange={(o) => !o && setActiveId(null)}>
+          <DialogContent className="sm:max-w-md">
+            {(() => {
+              const p = featured.find((x) => x.id === activeId)!;
+              return (
+                <div className="max-h-[80vh] flex flex-col">
+                  <DialogHeader>
+                    <DialogTitle className="text-xl font-serif text-primary">{p.name}</DialogTitle>
+                  </DialogHeader>
+                  <div className="relative aspect-[4/3] bg-muted rounded-md overflow-hidden">
+                    <img src={`/products/${p.image}`} alt={p.name} className="absolute inset-0 h-full w-full object-cover" />
+                  </div>
+                  <div className="mt-3 overflow-y-auto hide-scrollbar pr-1 flex-1 space-y-3">
+                    <p className="text-sm text-muted-foreground">{p.description}</p>
+                    <div>
+                      <h4 className="font-medium">Ingredients</h4>
+                      <p className="text-sm text-muted-foreground">{p.ingredients}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium">How to Use</h4>
+                      <p className="text-sm text-muted-foreground">{p.howToUse}</p>
+                    </div>
+                  </div>
+                  <div className="pt-3 border-t flex items-center justify-between">
+                    <span className="flex items-center gap-2">
+                      <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs text-muted-foreground">{p.volume}</span>
+                      <span className="inline-flex items-center rounded-full border border-primary text-primary px-2 py-0.5 text-xs font-semibold">{p.price}</span>
+                    </span>
+                    <a href={whatsappUrl(p.name)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-3 py-2 rounded-md bg-primary text-primary-foreground text-sm">Enquire</a>
+                  </div>
+                </div>
+              );
+            })()}
+          </DialogContent>
+        </Dialog>
       )}
     </section>
   );
