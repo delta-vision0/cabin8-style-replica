@@ -12,9 +12,9 @@ const Contact = () => {
     },
     {
       icon: Mail,
-      title: "Owner", 
-      details: "Shrey Kshirsagar",
-      subtitle: "Salon Owner"
+      title: "Email", 
+      details: "cabin8salon@gmail.com",
+      subtitle: "Tap to email us"
     },
     {
       icon: MapPin,
@@ -49,9 +49,22 @@ const Contact = () => {
 
         {/* Contact Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {contactInfo.map((info, index) => (
+          {contactInfo.map((info, index) => {
+            const isPhone = info.title === "Phone";
+            const isEmail = info.title === "Email";
+            const isLocation = info.title === "Location";
+            const Wrapper: any = isPhone || isEmail || isLocation ? "a" : "div";
+            const wrapperProps = isPhone
+              ? { href: `tel:${info.details}` }
+              : isEmail
+              ? { href: `mailto:${info.details}` }
+              : isLocation
+              ? { href: "https://maps.app.goo.gl/xK5DEJqtsvgHEX8H9", target: "_blank", rel: "noopener noreferrer" }
+              : {};
+            return (
             <Card key={index} className="border-0 bg-card/50 hover:bg-card transition-luxury group text-center">
-              <CardContent className="p-6">
+              <CardContent className="p-0">
+                <Wrapper {...wrapperProps} className="block p-6">
                 <div className="mb-4 flex justify-center">
                   <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-luxury">
                     <info.icon className="w-6 h-6 text-primary" />
@@ -69,9 +82,11 @@ const Contact = () => {
                 <p className="text-muted-foreground text-sm">
                   {info.subtitle}
                 </p>
+                </Wrapper>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA Section */}

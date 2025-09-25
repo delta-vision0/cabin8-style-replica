@@ -41,16 +41,19 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
-              <a href="#about" className="text-foreground hover:text-primary transition-smooth font-medium">
+              <a href="/" className="text-foreground hover:text-primary transition-smooth font-medium">
+                HOME
+              </a>
+              <a href="/#about" className="text-foreground hover:text-primary transition-smooth font-medium">
                 ABOUT
               </a>
-              <a href="#services" className="text-foreground hover:text-primary transition-smooth font-medium">
+              <a href="/#services" className="text-foreground hover:text-primary transition-smooth font-medium">
                 SERVICES
               </a>
-              <a href="#team" className="text-foreground hover:text-primary transition-smooth font-medium">
-                TEAM
+              <a href="/products" className="text-foreground hover:text-primary transition-smooth font-medium">
+                PRODUCTS
               </a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-smooth font-medium">
+              <a href="/#contact" className="text-foreground hover:text-primary transition-smooth font-medium">
                 CONTACT
               </a>
               <a href="#careers" className="inline-flex items-center justify-center bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-luxury rounded-md px-4 py-2 font-medium">
@@ -76,28 +79,35 @@ const Header = () => {
             <div className="lg:hidden border-t border-border py-4">
               <nav className="flex flex-col space-y-4">
                 <a
-                  href="#about"
+                  href="/"
+                  className="text-foreground hover:text-primary transition-smooth font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  HOME
+                </a>
+                <a
+                  href="/#about"
                   className="text-foreground hover:text-primary transition-smooth font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   ABOUT
                 </a>
                 <a
-                  href="#services"
+                  href="/#services"
                   className="text-foreground hover:text-primary transition-smooth font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   SERVICES
                 </a>
                 <a
-                  href="#team"
+                  href="/products"
                   className="text-foreground hover:text-primary transition-smooth font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  TEAM
+                  PRODUCTS
                 </a>
                 <a
-                  href="#contact"
+                  href="/#contact"
                   className="text-foreground hover:text-primary transition-smooth font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >

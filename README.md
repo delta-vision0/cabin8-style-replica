@@ -33,3 +33,16 @@ npm run preview
 - TypeScript
 - Tailwind CSS
 - shadcn-ui
+
+## Product ads images
+
+Place the promo images you shared under `public/products` using these exact filenames so the homepage product ads can load them:
+
+- `anti-dandruff-gel.jpg` – model holding grey anti-dandruff bottle
+- `argan-oil-hero.jpg` – model with two brown bottles (Unlock Your Hair’s Radiance)
+- `argan-conditioner.jpg` – white label Argan Oil conditioner bottle
+- `argan-shampoo.jpg` – black label Argan Oil shampoo bottle
+- `anti-dandruff-shampoo-portrait.jpg` – vertical creative “everyday shield against dullness”
+- `anti-dandruff-shampoo.jpg` – model holding white anti-dandruff shampoo
+
+Files under `public` are served at `/products/<filename>`.

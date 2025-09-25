@@ -1,100 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Clock, Users, Star } from "lucide-react";
-import { Link, useParams } from "react-router-dom";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import interiorImage from "@/assets/cabin8-interior.jpg";
+import { treatments } from "@/lib/treatments";
+import { useState } from "react";
 
 const Treatments = () => {
-  const treatments = [
-    {
-      id: "keratin",
-      title: "Keratin Treatment",
-      description: "Professional keratin treatment that smoothens and strengthens your hair, eliminating frizz and providing long-lasting results.",
-      benefits: [
-        "Reduces frizz up to 95%",
-        "Cuts styling time in half", 
-        "Adds incredible shine",
-        "Strengthens hair structure",
-        "Lasts 3-6 months"
-      ],
-      duration: "2-4 hours",
-      suitableFor: "All hair types, especially frizzy and damaged hair",
-      process: "Deep cleansing, keratin application, blow-dry, and heat sealing for maximum effectiveness.",
-      aftercare: "Avoid washing for 72 hours, use sulfate-free shampoo, and minimize heat styling."
-    },
-    {
-      id: "aminotherapy",
-      title: "Aminotherapy",
-      description: "Advanced amino acid therapy that repairs damaged hair from within, restoring natural strength and vitality.",
-      benefits: [
-        "Repairs damaged hair cuticles",
-        "Restores natural protein balance",
-        "Improves hair elasticity",
-        "Reduces breakage significantly",
-        "Long-lasting results"
-      ],
-      duration: "1.5-2.5 hours",
-      suitableFor: "Chemically treated and severely damaged hair",
-      process: "Hair analysis, amino acid application, processing with controlled heat, and protective sealing.",
-      aftercare: "Use protein-free products for 2 weeks, gentle handling, and regular deep conditioning."
-    },
-    {
-      id: "nanoplastia",
-      title: "Nanoplastia",
-      description: "Revolutionary nanotechnology treatment that penetrates deep into hair fibers for ultimate smoothness and manageability.",
-      benefits: [
-        "Ultimate hair smoothening",
-        "Reduces volume naturally",
-        "Eliminates static and frizz",
-        "Adds natural movement",
-        "Safe for colored hair"
-      ],
-      duration: "2-3 hours", 
-      suitableFor: "All hair types seeking smoothness without chemical processing",
-      process: "Gentle cleansing, nanoplastia application layer by layer, controlled drying, and sealing.",
-      aftercare: "Wait 48 hours before washing, use recommended products, and avoid tight hairstyles."
-    },
-    {
-      id: "bluetox",
-      title: "Bluetox Treatment",
-      description: "Premium bluetox formula that provides intensive repair while maintaining hair's natural movement and texture.",
-      benefits: [
-        "Intensive hair repair",
-        "Maintains natural texture",
-        "Reduces frizz moderately",
-        "Adds healthy shine",
-        "Quick processing time"
-      ],
-      duration: "1-2 hours",
-      suitableFor: "Mildly damaged hair wanting natural-looking results",
-      process: "Pre-treatment preparation, bluetox application, gentle processing, and final conditioning.",
-      aftercare: "Regular maintenance treatments recommended, use color-safe products."
-    },
-    {
-      id: "botox",
-      title: "Hair Botox Treatment", 
-      description: "Intensive botox therapy that fills hair fiber gaps, providing immediate repair and rejuvenation for damaged hair.",
-      benefits: [
-        "Instant hair rejuvenation",
-        "Fills damaged areas",
-        "Adds volume and body",
-        "Improves hair health",
-        "No harsh chemicals"
-      ],
-      duration: "1.5-2 hours",
-      suitableFor: "Thin, fine, or moderately damaged hair",
-      process: "Deep cleansing, botox mask application, steam processing, and nutrient sealing.",
-      aftercare: "Avoid washing for 24 hours, use gentle products, and maintain with regular treatments."
-    }
-  ];
-
-  const { serviceId } = useParams();
-
-  const visibleTreatments = serviceId
-    ? treatments.filter((t) => t.id === serviceId)
-    : treatments;
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
@@ -147,64 +62,49 @@ const Treatments = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {visibleTreatments.map((treatment) => (
-              <Card key={treatment.id} className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-serif text-primary">
-                    {treatment.title}
-                  </CardTitle>
-                  <p className="text-muted-foreground">{treatment.description}</p>
-                </CardHeader>
-                
-                <CardContent className="space-y-6">
-                  {/* Key Info */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="flex items-center space-x-2">
-                      <Clock className="w-4 h-4 text-accent" />
-                      <span className="text-sm text-muted-foreground">{treatment.duration}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Users className="w-4 h-4 text-accent" />
-                      <span className="text-sm text-muted-foreground">Expert Care</span>
-                    </div>
-                  </div>
-
-                  {/* Benefits */}
-                  <div>
-                    <h4 className="font-semibold text-primary mb-3 flex items-center">
-                      <Star className="w-4 h-4 mr-2 text-accent" />
-                      Key Benefits
-                    </h4>
-                    <ul className="space-y-1">
-                      {treatment.benefits.map((benefit, idx) => (
-                        <li key={idx} className="text-sm text-muted-foreground flex items-start">
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 mr-2 flex-shrink-0"></div>
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Suitable For */}
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Suitable For:</h4>
-                    <p className="text-sm text-muted-foreground">{treatment.suitableFor}</p>
-                  </div>
-
-                  {/* Process */}
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Process:</h4>
-                    <p className="text-sm text-muted-foreground">{treatment.process}</p>
-                  </div>
-
-                  {/* Aftercare */}
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Aftercare:</h4>
-                    <p className="text-sm text-muted-foreground">{treatment.aftercare}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            {treatments.map((t) => {
+              const expanded = expandedId === t.id;
+              return (
+                <Card key={t.id} className="transition-all duration-300">
+                  <button
+                    className="w-full text-left"
+                    onClick={() => setExpandedId(expanded ? null : t.id)}
+                  >
+                    <CardHeader>
+                      <CardTitle className="flex items-center justify-between text-2xl font-serif text-primary">
+                        <span>{t.title}</span>
+                        {expanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                      </CardTitle>
+                      <p className="text-muted-foreground">{t.description}</p>
+                    </CardHeader>
+                  </button>
+                  {expanded && (
+                    <CardContent className="space-y-6">
+                      <div className="text-sm text-muted-foreground">
+                        <p><span className="font-medium text-foreground">Duration:</span> {t.duration}</p>
+                        <p><span className="font-medium text-foreground">Suitable for:</span> {t.suitableFor}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">Key Benefits</h4>
+                        <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                          {t.benefits.map((b) => (
+                            <li key={b}>{b}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">Process</h4>
+                        <p className="text-sm text-muted-foreground">{t.process}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">Aftercare</h4>
+                        <p className="text-sm text-muted-foreground">{t.aftercare}</p>
+                      </div>
+                    </CardContent>
+                  )}
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,5 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { treatments, getTreatmentById } from "@/lib/treatments";
 import hairIcon from "@/assets/hair-icon.jpg";
 import blowoutIcon from "@/assets/blowout-icon.jpg";
 import spaIcon from "@/assets/spa-icon.jpg";
@@ -53,11 +55,13 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 items-stretch">
           {services.map((service) => (
-            <Link key={service.id} to={`/treatments/${service.id}`}>
-              <Card className="group border-0 bg-transparent hover:bg-card transition-luxury cursor-pointer h-full">
-              <CardContent className="p-8 text-center">
+            <Dialog key={service.id}>
+              <DialogTrigger asChild>
+                <div className="cursor-pointer">
+                  <Card className="group border-0 md:border md:bg-card md:rounded-xl bg-transparent hover:bg-card transition-luxury cursor-pointer h-full">
+                  <CardContent className="p-6 md:p-8 lg:p-10 text-center">
                 {/* Icon */}
                 <div className="mb-6 flex justify-center">
                   <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-luxury">
@@ -70,12 +74,12 @@ const Services = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-serif font-medium text-primary mb-4 tracking-wide">
+                  <h3 className="text-xl font-serif font-medium text-primary mb-4 tracking-wide break-words">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed break-words">
                   {service.description}
                 </p>
 
@@ -87,7 +91,37 @@ const Services = () => {
                 </div>
               </CardContent>
             </Card>
-            </Link>
+                </div>
+              </DialogTrigger>
+              <DialogContent>
+                {(() => {
+                  const t = getTreatmentById(service.id) || treatments[0];
+                  return (
+                    <div className="space-y-3">
+                      <DialogHeader>
+                        <DialogTitle className="text-xl font-serif text-primary">{t.title}</DialogTitle>
+                      </DialogHeader>
+                      <p className="text-sm text-muted-foreground">{t.description}</p>
+                      <div>
+                        <h4 className="font-semibold mb-2">Key Benefits</h4>
+                        <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                          {t.benefits.map((b) => (
+                            <li key={b}>{b}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        <p><span className="font-medium text-foreground">Duration:</span> {t.duration}</p>
+                        <p><span className="font-medium text-foreground">Suitable for:</span> {t.suitableFor}</p>
+                      </div>
+                      <div className="pt-2">
+                       
+                      </div>
+                    </div>
+                  );
+                })()}
+              </DialogContent>
+            </Dialog>
           ))}
         </div>
 

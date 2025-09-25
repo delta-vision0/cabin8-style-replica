@@ -6,14 +6,16 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import interior from "@/assets/cabin8-interior.jpg";
 import merch from "@/assets/cabin8-merchandise.jpg";
+import ProductAds from "@/components/ProductAds";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div id="top" className="min-h-screen bg-background">
       <Header />
       <Hero />
       <About />
       <Services />
+      <ProductAds />
       {/* Gallery Section */}
       <section id="gallery" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
@@ -35,7 +37,7 @@ const Index = () => {
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
             Join our hair & makeup academy and grow with industry professionals. Hands-on training, real clients, and a clear path to success.
           </p>
-          <a href="#contact" className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-luxury rounded-md font-medium tracking-wide">
+          <a href="tel:8007446194" className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-luxury rounded-md font-medium tracking-wide">
             CONTACT ADMISSIONS
           </a>
         </div>
