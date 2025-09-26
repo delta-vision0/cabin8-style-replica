@@ -42,38 +42,16 @@ const About = () => {
             </div>
 
             <div className="space-y-6 text-muted-foreground leading-relaxed">
-              <p className="text-lg">
-                Located in Ichalkaranji 416115 near RK Cineplex, Cabin8 Unisex Salon is your destination 
-                for premium beauty, cosmetic & personal care services. Under the expert guidance of 
-                owner and lead stylist <span className="font-semibold">Shreyash Kshirsagar</span>, we bring together culture and expertise in Makeup, Beauty, Hair, 
-                and Health for happy lifestyles.
-              </p>
-              
-              <p>
-                We specialize in advanced treatments including Keratin, Aminotherapy, Nanoplastia, 
-                Bluetox, and Botox. Our commitment to hygienic services at affordable prices, 
-                combined with loyalty rewards and complimentary consultations, makes us the 
-                preferred choice for discerning clients.
-              </p>
+  <p className="text-lg">
+    <span className="font-semibold">Cabin8 Unisex Salon & Academy</span>, located near RK Cineplex in Ichalkaranji (416115), is your premier destination for beauty, personal care, and professional training. Under the expert guidance of owner and lead stylist <span className="font-semibold">Shreyash Kshirsagar</span>, we blend culture, creativity, and expertise in Hair, Makeup, Skin, and Wellness for a complete lifestyle experience.
+  </p>
 
-              <div className="mb-6">
-                <h3 className="text-xl font-serif text-primary mb-6">Our Expert Team</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {[{ n: 'Shreyash Kshirsagar', role: 'Owner • Lead Expert' }, { n: 'Nachiket', role: 'Expert Stylist' }, { n: 'Rushikesh', role: 'Expert Stylist' }, { n: 'Sanchita', role: 'Expert Stylist' }, { n: 'Smital', role: 'Expert Stylist' }, { n: 'Pooja', role: 'Expert Stylist' }, { n: 'Om', role: 'Expert Stylist' }].map((m, index) => (
-                    <div key={index} className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-card to-muted/20 border border-accent/10 p-4 text-center hover:shadow-lg transition-all duration-300">
-                      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="relative z-10">
-                        <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center group-hover:from-accent/30 group-hover:to-primary/30 transition-all duration-300">
-                          <span className="text-lg font-serif font-semibold text-primary">{m.n.charAt(0)}</span>
-                        </div>
-                        <p className="font-serif font-medium text-primary text-base mb-1">{m.n}</p>
-                        <p className="text-xs text-muted-foreground tracking-wide uppercase">{m.role}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+  <p>
+    We offer an extensive range of services including Haircuts, Hair Coloring, Hair Smoothening, Keratin, Aminotherapy, Nanoplastia, Bluetox, Botox, Bridal & Event Makeup, Skin Treatments, and Body Care. As a professional academy, we also provide comprehensive hair and makeup training for aspiring stylists. Our commitment to hygienic practices, personalized services, and affordable packages makes Cabin8 the preferred choice for clients and students alike.
+  </p>
+</div>
+
+
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#careers" className="px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-luxury rounded-md font-medium tracking-wide">
