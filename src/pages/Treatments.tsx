@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import interiorImage from "@/assets/cabin8-interior.jpg";
@@ -10,6 +10,8 @@ import { useState } from "react";
 
 const Treatments = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
@@ -25,10 +27,9 @@ const Treatments = () => {
         </div>
         
         <div className="relative z-10 container mx-auto max-w-6xl text-center text-white">
-          <Link to="/" className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Link>
+          <button onClick={() => navigate(-1)} className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors">
+            <ArrowLeft className="w-4 h-4 mr-2" /> Back
+          </button>
           
           <h1 className="text-4xl md:text-6xl font-serif font-light mb-6">
             Premium Hair Treatments

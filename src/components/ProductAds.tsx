@@ -80,7 +80,7 @@ const ProductAds: FC = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="mb-5 text-center">
           <p className="text-muted-foreground uppercase tracking-widest text-xs font-medium">CABIN8 PRODUCTS</p>
-          <h2 className="text-3xl md:text-4xl font-serif font-light text-primary">Shop Our Bestsellers</h2>
+          <h2 className="text-3xl md:text-4xl font-serif font-light text-primary">Shop Our Bestselling Products</h2>
         </div>
 
         {/* Mobile carousel + Desktop carousel */}

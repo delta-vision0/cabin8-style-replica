@@ -4,7 +4,7 @@ import heroImage from "@/assets/cabin8-interior.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-[85vh] md:h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -15,9 +15,9 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-        <div className="space-y-6">
-          <p className="text-lg md:text-xl font-light tracking-wide uppercase">
-            Beauty, Cosmetic & Personal Care
+        <div className="space-y-4 md:space-y-6">
+          <p className="text-base md:text-xl font-light tracking-wide uppercase mt-4 md:mt-0">
+            Hair, Beauty, Cosmetic & Personal Care
           </p>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-light leading-tight">
@@ -25,11 +25,11 @@ const Hero = () => {
             <span className="block">UNISEX SALON</span>
           </h1>
 
-          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto">
+          <p className="text-base md:text-xl font-light max-w-2xl mx-auto">
             We're bringing together culture and Makeup, Beauty, Hair, Health experts and happy lifestyles.
           </p>
 
-          <div className="space-y-3 mb-8">
+          <div className="space-y-2 md:space-y-3 mb-6 md:mb-8">
             <div className="flex items-center justify-center space-x-3">
               <div className="w-2 h-2 rounded-full bg-accent"></div>
               <span className="text-white/90">Hygienic services at affordable prices</span>
@@ -44,7 +44,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pt-4 md:pt-8">
             <a
               href="tel:8007446194"
               className="inline-flex items-center justify-center bg-white text-primary hover:bg-white/90 transition-luxury px-8 py-3 text-lg font-medium rounded-md"

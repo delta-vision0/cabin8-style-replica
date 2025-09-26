@@ -5,6 +5,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from "@/components/ui/input";
 import { products } from "@/lib/products";
 import { useMemo, useState } from "react";
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ProductsPage = () => {
   const [query, setQuery] = useState("");
@@ -15,12 +17,19 @@ const ProductsPage = () => {
     });
   }, [query]);
 
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       <section className="py-12 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
+          <div className="flex items-center justify-between mb-4">
+            <button onClick={() => navigate(-1)} className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors">
+              <ArrowLeft className="w-4 h-4 mr-2" /> Back
+            </button>
+          </div>
           <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
             <h1 className="text-3xl md:text-4xl font-serif font-light text-primary">All Products</h1>
             <div className="flex gap-3">

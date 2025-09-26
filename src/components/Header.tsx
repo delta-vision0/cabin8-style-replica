@@ -53,6 +53,9 @@ const Header = () => {
               <a href="/products" className="text-foreground hover:text-primary transition-smooth font-medium">
                 PRODUCTS
               </a>
+              <a href="/gallery" className="text-foreground hover:text-primary transition-smooth font-medium">
+                GALLERY
+              </a>
               <a href="/#contact" className="text-foreground hover:text-primary transition-smooth font-medium">
                 CONTACT
               </a>
@@ -105,6 +108,13 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   PRODUCTS
+                </a>
+                <a
+                  href="/gallery"
+                  className="text-foreground hover:text-primary transition-smooth font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  GALLERY
                 </a>
                 <a
                   href="/#contact"

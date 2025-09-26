@@ -51,7 +51,7 @@ const About = () => {
               
               <p>
                 We specialize in advanced treatments including Keratin, Aminotherapy, Nanoplastia, 
-                Bluetox, and Bootox. Our commitment to hygienic services at affordable prices, 
+                Bluetox, and Botox. Our commitment to hygienic services at affordable prices, 
                 combined with loyalty rewards and complimentary consultations, makes us the 
                 preferred choice for discerning clients.
               </p>

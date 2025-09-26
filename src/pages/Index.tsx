@@ -6,6 +6,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import interior from "@/assets/cabin8-interior.jpg";
 import merch from "@/assets/cabin8-merchandise.jpg";
+import { galleryItems } from "@/lib/gallery";
 import ProductAds from "@/components/ProductAds";
 
 const Index = () => {
@@ -23,9 +24,13 @@ const Index = () => {
             <p className="text-muted-foreground uppercase tracking-widest text-sm font-medium mb-2">INSIDE CABIN8</p>
             <h2 className="text-4xl md:text-5xl font-serif font-light text-primary">Gallery</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <img src={interior} alt="Cabin8 Interior" className="w-full h-72 object-cover rounded-xl shadow-soft" />
-            <img src={merch} alt="Cabin8 Merchandise" className="w-full h-72 object-cover rounded-xl shadow-soft" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {galleryItems.slice(0, 3).map((g) => (
+              <img key={g.id} src={g.src} alt={g.alt} className="w-full h-72 object-cover rounded-xl shadow-soft" />
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href="/gallery" className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-luxury rounded-md font-medium tracking-wide">Explore Cabin8 Gallery</a>
           </div>
         </div>
       </section>
