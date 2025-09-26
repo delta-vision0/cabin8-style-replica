@@ -23,6 +23,19 @@ export const products: Product[] = [
     image: "cabin8-argan-oil-shampoo.jpg",
   },
   {
+    id: "cabin8-argan-oil-conditioner",
+    name: "Cabin8 Argan Oil Conditioner",
+    description:
+      "Cabin8 Argan Oil Conditioner is infused with the luxurious goodness of Argan Oil, delivering intense hydration and nourishment. This sulphate and paraben-free conditioner smoothens and detangles, leaving your hair silky, frizz-free, and safe for color-treated strands.",
+    ingredients:
+      "Aqua, Glycerine, Argan Oil Extracts, Cetosteary Alcohol, Ceteareth 20, cetyl Alchol, Shea Butter. Cetrimonium Chloride, Peg-100 Stearate (and) Glyceryl Stearate, Dimethiconol, Olive Oil, Argan Oil, Polyquaternium - 7, DMDM Hydantoin, Citric Acid, Fragrance.",
+    howToUse:
+      "After shampooing with Cabin8 Argan Oil Shampoo, apply a generous amount of Cabin8 Argan Oil Conditioner to damp hair, focusing on mid-lengths to ends. Leave on for 1-2 minutes, then rinse thoroughly. Enjoy silky-smooth, nourished locks.",
+    volume: "300ml",
+    price: "₹599/-",
+    image: "cabin8-argan-oil-conditioner.jpg",
+  },
+  {
     id: "cabin8-intense-repair-shampoo",
     name: "Cabin8 Intense Repair Shampoo",
     description:
@@ -47,6 +60,19 @@ export const products: Product[] = [
     volume: "250ml",
     price: "₹1199/-",
     image: "cabin8-intense-repair-conditioner.jpg",
+  },
+  {
+    id: "cabin8-intense-repair-hair-serum",
+    name: "Cabin8 Intense Repair Hair Serum",
+    description:
+      "Experience the transformation with Cabin8 Intense Repair Hair Serum, a dynamic formula designed to unlock the full potential of your hair. Lightweight, non-greasy serum for silky, smooth, and radiantly healthy hair. Helps fight frizz, split ends, and adds shine.",
+    ingredients:
+      "Cyclopentasiloxane, Dimethiconol, Sweet Almond Oil, Light Liquid Paraffin, Parfume.",
+    howToUse:
+      "Apply a small quantity to washed and dried hair, spread evenly along lengths and ends. Reapply if necessary, depending on hair thickness.",
+    volume: "100ml",
+    price: "₹450/-",
+    image: "cabin8-intense-repair-hair-serum.jpg",
   },
   {
     id: "cabin8-anti-dandruff-shampoo",
@@ -74,6 +100,7 @@ export const products: Product[] = [
     price: "₹599/-",
     image: "cabin8-anti-dandruff-hair-oil.jpg",
   },
+  
 ];
 
 
