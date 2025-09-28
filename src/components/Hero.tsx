@@ -40,7 +40,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center justify-center space-x-3">
               <div className="w-2 h-2 rounded-full bg-accent"></div>
-              <span className="text-white/90">Get Free HairCut With Hair Treatment</span>
+              <span className="text-white/90">Get Free Haircut With Hair Treatment</span>
             </div>
           </div>
 
