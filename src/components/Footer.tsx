@@ -44,7 +44,7 @@ const Footer = () => {
               </div>
               <div className="mt-4">
                 <p className="text-sm font-medium mb-1">Hours:</p>
-                <p className="text-sm">THU - MON: 9AM - 9PM</p>
+                <p className="text-sm">WED - MON: 9AM - 9PM</p>
                 <p className="text-sm">Tuesday : Closed</p>
               </div>
             </div>
@@ -54,7 +54,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-primary-foreground/60 text-sm">
-            © 2024 Cabin8 Unisex Salon. All rights reserved.
+            © 2025 Cabin8 Unisex Salon. All rights reserved.
           </p>
           
           <div className="flex gap-4 mt-4 md:mt-0">

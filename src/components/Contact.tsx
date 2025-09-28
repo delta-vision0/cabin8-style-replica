@@ -25,7 +25,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Hours",
-      details: "THU - MON: 9AM - 9PM",
+      details: "WED - MON: 9AM - 9PM",
       subtitle: "Closed on Tuesday"
     }
   ];

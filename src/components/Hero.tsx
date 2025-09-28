@@ -26,7 +26,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-base md:text-xl font-light max-w-2xl mx-auto">
-            We're bringing together culture and Makeup, Beauty, Hair, Health experts and happy lifestyles.
+            We're bringing together culture and Hair, Beauty, Makeup, Health experts and happy lifestyles.
           </p>
 
           <div className="space-y-2 md:space-y-3 mb-6 md:mb-8">

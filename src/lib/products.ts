@@ -12,12 +12,12 @@ export type Product = {
 export const products: Product[] = [
   {
     id: "cabin8-argan-oil-shampoo",
-    name: "Cabin8 Haircare Argan Oil Shampoo",
+    name: "Cabin8 Argan Oil Shampoo",
     description:
-      "Cabin8 Haircare Argan Oil Shampoo is enriched with the nourishing power of Argan Oil to deeply hydrate and revitalize your hair. This sulphate and paraben-free formula gently cleanses while protecting color-treated hair, leaving it soft, shiny, and frizz-free.",
+      "Cabin8 Argan Oil Shampoo is enriched with the nourishing power of Argan Oil to deeply hydrate and revitalize your hair. This sulphate and paraben-free formula gently cleanses while protecting color-treated hair, leaving it soft, shiny, and frizz-free.",
     ingredients:
       "Aqua, Cocamidopropyl Betaine, Etheylene Glycol Disterate, Coco Diethanolamine, Moroccan Argan Oil Extracts, Glycerine, Sodium Lauroyl Sarcosinate, a Polyquaternium - 7, Coco Glucoside, Aloe Barbadensis, Dmdm Hydantoin, Citric Acid and fragrance",
-    howToUse: "Apply to wet hair, lather, and rinse thoroughly.",
+    howToUse: "Apply a small amount to wet hair, massage gently into the scalp and hair, then rinse thoroughly. Enjoy the nourishing benefits of Argan oil for luxuriously soft and shiny hair.",
     volume: "300ml",
     price: "₹599/-",
     image: "cabin8-argan-oil-shampoo.jpg",
